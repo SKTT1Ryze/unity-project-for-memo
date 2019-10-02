@@ -23,11 +23,11 @@ public class Move : MonoBehaviour
             pos.x =Input .mousePosition .x -Screen .width *0.5f;
             pos.y = Input.mousePosition.y - Screen.height*0.5f;
             pos.z = transform.position.z;
-            Debug.Log("pos:"+pos);
-            Debug.Log("this:"+transform.position);
+            //Debug.Log("pos:"+pos);
+            //Debug.Log("this:"+transform.position);
             dist = Vector3.Distance(pos, transform.position);
-            Debug.Log("distance:"+dist);
-            Debug.Log("movevector:" + (pos - transform.position));
+            //Debug.Log("distance:"+dist);
+            //Debug.Log("movevector:" + (pos - transform.position));
             if(dist >10f)
             {
                 this.transform.Translate((pos - transform.position) * Time.deltaTime * speed, Space.World);
