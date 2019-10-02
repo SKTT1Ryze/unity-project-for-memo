@@ -8,6 +8,7 @@ public class Move : MonoBehaviour
     private bool Ismove = true;
     private Vector3 pos;
     private float dist;
+    private Vector3 screenpos;
 
     void Start()
     {
@@ -18,19 +19,20 @@ public class Move : MonoBehaviour
     {
         if(Ismove)
         {
-            /*Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-            RaycastHit hit = new RaycastHit();*/
-            pos.x =Input .mousePosition .x -Screen .width *0.5f;
+           
+            /*pos.x =Input .mousePosition .x -Screen .width *0.5f;
             pos.y = Input.mousePosition.y - Screen.height*0.5f;
-            pos.z = transform.position.z;
+            pos.z = transform.position.z;*/
+            pos = Input.mousePosition;
+            screenpos = Camera.main.WorldToScreenPoint(transform.position);
             //Debug.Log("pos:"+pos);
-            //Debug.Log("this:"+transform.position);
-            dist = Vector3.Distance(pos, transform.position);
+            //Debug.Log("this:"+screenpos );
+            dist = Vector3.Distance(pos, screenpos );
             //Debug.Log("distance:"+dist);
-            //Debug.Log("movevector:" + (pos - transform.position));
+            //Debug.Log("movevector:" + (pos - screenpos));
             if(dist >10f)
             {
-                this.transform.Translate((pos - transform.position) * Time.deltaTime * speed, Space.World);
+                this.transform.Translate((pos - screenpos ) * Time.deltaTime * speed, Space.World);
 
             }
         }
