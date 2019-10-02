@@ -26,7 +26,7 @@ public class bodyrotate : MonoBehaviour
         head_position= Camera.main.WorldToScreenPoint(head.transform .position );
         frontvector = mouse_position  - head_position ;
         followedvector = head_position-this_position ;
-        Debug.Log("angle:"+Vector3.Dot(frontvector, followedvector));
+        //Debug.Log("angle:"+Vector3.Dot(frontvector, followedvector));
         if(Vector3 .Dot (frontvector ,followedvector )<0f||Vector3 .Dot (frontvector ,followedvector )>50f)
         {
             transform.RotateAround(head.transform.position, new Vector3(0f, 0f, 1f), rotatespeed*0.5f);
