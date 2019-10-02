@@ -32,7 +32,7 @@ public class bodyrotate2 : MonoBehaviour
         followedvector = head_position - this_position;
         front_dis = Vector3.Distance(mouse_worldposition, head_position);
         followed_dis = Vector3.Distance(head_position, this_position);
-        Debug.Log(Vector3.Dot(frontvector, followedvector));
+        //Debug.Log(Vector3.Dot(frontvector, followedvector));
         //Debug.Log(Vector3.Dot(frontvector, followedvector) / (front_dis * followed_dis));
         cross = Vector3.Cross(frontvector, followedvector);
         if (Vector3.Dot(frontvector, followedvector)< 0f || Vector3.Dot(frontvector, followedvector) / (front_dis * followed_dis)<0.999f)
