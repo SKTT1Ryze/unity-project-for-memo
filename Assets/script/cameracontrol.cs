@@ -16,8 +16,8 @@ public class cameracontrol : MonoBehaviour
     {
         targetpos = snake.transform.position;
         targetpos.z = transform.position .z;
-        Debug.Log("targetpos" + targetpos);
-        Debug.Log("this" + transform.position);
+        //Debug.Log("targetpos" + targetpos);
+        //Debug.Log("this" + transform.position);
         this.transform.position = Vector3.Lerp(transform.position, targetpos, smooth * Time.deltaTime);
     }
 }
