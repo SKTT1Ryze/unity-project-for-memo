@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class trigger : MonoBehaviour
 {
+    private int count;
     private void Start()
     {
         
@@ -18,6 +19,7 @@ public class trigger : MonoBehaviour
     }*/
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        Debug.Log("on trigger");
+        count++;
+        Debug.Log("on trigger:"+count );
     }
 }

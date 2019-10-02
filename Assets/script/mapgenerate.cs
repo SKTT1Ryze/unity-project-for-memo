@@ -5,7 +5,8 @@ using UnityEngine;
 public class mapgenerate : MonoBehaviour
 {
     public GameObject floor;
-    public Sprite[] floorsp;
+    //public Sprite[] floorsp;
+    public GameObject[] prefebs;
     public float sizeofmap;
 
     void Start()
@@ -16,7 +17,8 @@ public class mapgenerate : MonoBehaviour
             for(int j=-6;j<6 ;j++)
             {
                 GameObject floor0 = (GameObject)Instantiate(floor, new Vector3(sizeofmap  * i, sizeofmap  * j, 0), Quaternion.identity);
-                floor.GetComponent<SpriteRenderer>().sprite = floorsp[Random.Range(0, floorsp.Length)];
+                //floor.GetComponent<SpriteRenderer>().sprite = floorsp[Random.Range(0, floorsp.Length)];
+                floor = prefebs[Random.Range(0, prefebs.Length)];
             }
         }
     }
