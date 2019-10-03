@@ -13,7 +13,7 @@ public class GM : MonoBehaviour
     }
     void Start()
     {
-        speed = 1f;
+        speed = 5f;
     }
 
     // Update is called once per frame

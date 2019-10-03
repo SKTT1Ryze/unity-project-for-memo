@@ -5,7 +5,6 @@ using UnityEngine;
 public class Move2 : MonoBehaviour
 {
     public float speed = 0.5f;
-    private bool Ismove = true;
     private Vector3 mousepos;
     private Vector3 mouseworldpos;
     private float dist;
