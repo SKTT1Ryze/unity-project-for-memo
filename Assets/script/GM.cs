@@ -5,7 +5,7 @@ using UnityEngine;
 public class GM : MonoBehaviour
 {
     public static GM instance;
-    [Header ("贪吃蛇移动速度变量")]  
+    [Header ("贪吃蛇初始移动速度变量")]  
     public float speed;
     private void Awake()
     {
@@ -16,9 +16,9 @@ public class GM : MonoBehaviour
         speed = 5f;
     }
 
-    // Update is called once per frame
     void Update()
     {
         
     }
+    
 }

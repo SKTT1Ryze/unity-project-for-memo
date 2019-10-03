@@ -9,16 +9,18 @@ public class snakemanager : MonoBehaviour
     public GameObject snakeprefab;
     [Header ("贪吃蛇身体List")]
     public List<Transform> snakebodylist = new List<Transform>();
-    private float speed;
+    [Header ("贪吃蛇移动速度变量")]
+    public   float speed;
     //获取游戏管理器
     public GM gamemanager;
+    [Header ("贪吃蛇身体跟随速度")]
     public float lerp = 5f;
     //当前鼠标在世界坐标中的位置
     private Vector3 currentmousepos;
     //贪吃蛇和鼠标的距离 
     private Vector2 deltadistance;
     [Header("贪吃蛇初始身体数量")]
-    public int bodyamount = 3;
+    public int bodyamount = 5;
     [Header ("贪吃蛇刚体")]
     public Rigidbody2D snakeheadR2d;
     //是否已经创建头部
@@ -93,6 +95,25 @@ public class snakemanager : MonoBehaviour
         }
         bodyamount++;
     }
+    public void deletebody()
+    {
+        if(bodyamount ==1)
+        {
+            //游戏结束
+            Debug.Log("游戏结束");
+        }
+        else if(bodyamount ==0)
+        {
+            //报错
+            return;
+        }
+        else
+        {
+            Destroy(snakebodylist[snakebodylist.Count - 1].gameObject);
+            snakebodylist.RemoveAt(snakebodylist.Count - 1);
+        }
+        bodyamount--;
+    }
 
     private void FixedUpdate()
     {
@@ -100,6 +121,7 @@ public class snakemanager : MonoBehaviour
     }
     void Update()
     {
+        //Debug.Log("bodyamount:" + bodyamount);
         //获取鼠标在世界坐标中的位置
         currentmousepos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         Ismousemove = Vector3.Distance (currentmousepos ,previousmousepos )>1E-03f;
@@ -128,7 +150,7 @@ public class snakemanager : MonoBehaviour
 
             //transform.Translate(previousvector * Time .deltaTime/previousdistance *speed  ,Space.World);
 
-            transform.Translate(deltadistance * Time .deltaTime , Space.World);
+            transform.Translate(deltadistance * Time .deltaTime*speed  , Space.World);
 
             /*float k = (snakehead.position.y - snakebodylist[1].position .y) / (snakehead.position.x - snakebodylist[1].position.x);
             Debug.Log("k:" + k);
@@ -154,4 +176,14 @@ public class snakemanager : MonoBehaviour
             snakebodylist[i].position = Vector2.Lerp(snakebodylist[i].position, previouspos, lerp * Time.smoothDeltaTime);
         }
     }
+    public void speedchange(float deltaspeed,float deltalerp)
+    {
+        if (speed > -deltaspeed &&speed <=10f&&lerp >-deltalerp &&lerp <=15f)
+        {
+            speed += deltaspeed;
+            lerp += deltalerp;
+        }
+        
+    }
+
 }
