@@ -12,6 +12,7 @@ public class cameracontrol : MonoBehaviour
     
 
     private Vector3 targetpos;
+    
 
     private void Start()
     {
@@ -19,7 +20,7 @@ public class cameracontrol : MonoBehaviour
     }
     private void Update()
     {
-        if(snake)
+        if(snake&&snake .snakehead )
         {
             targetpos = snake.snakehead.position;
             targetpos.z = transform.position.z;
