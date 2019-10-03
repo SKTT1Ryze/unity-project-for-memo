@@ -24,7 +24,7 @@ public class snakemanager : MonoBehaviour
     [Header ("贪吃蛇刚体")]
     public Rigidbody2D snakeheadR2d;
     //是否已经创建头部
-    private bool havehead=false ;
+    private bool havehead;
     //获取头部transform
     public Transform snakehead
     {
@@ -58,7 +58,18 @@ public class snakemanager : MonoBehaviour
     //获取蛇头的render组件
     public SpriteRenderer headsprite;
     //获取蛇头的sprite
-    public Sprite headpicture; 
+    public Sprite headpicture;
+    //获得出生点
+    public Transform  firstplace;
+    
+    public enum Modetype
+    {
+        A=1,
+        B=2,
+        C=3,
+        D=4
+    };
+    public Modetype modetype;
    
 
     private void Awake()
@@ -68,6 +79,8 @@ public class snakemanager : MonoBehaviour
     }
     void Start()
     {
+        
+        havehead = false;
         Ismousemove = true ;
         previousmousepos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         gamemanager = GM.instance;
@@ -81,7 +94,7 @@ public class snakemanager : MonoBehaviour
         {
             havehead = true;
             bodyamount = 0;
-            Transform newbodypart = Instantiate(snakeprefab, Vector3.zero, Quaternion.identity, transform).GetComponent<Transform>();
+            Transform newbodypart = Instantiate(snakeprefab, firstplace .position  , Quaternion.identity, transform).GetComponent<Transform>();
             snakebodylist.Add(newbodypart);
             snakeheadR2d = snakehead.GetComponent<Rigidbody2D>();
             headsprite = snakehead.GetComponent<SpriteRenderer>();

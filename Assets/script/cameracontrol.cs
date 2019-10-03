@@ -16,6 +16,7 @@ public class cameracontrol : MonoBehaviour
 
     private void Start()
     {
+        if(snakemanager)
         snake = snakemanager .GetComponent <snakemanager >() ; 
     }
     private void Update()
