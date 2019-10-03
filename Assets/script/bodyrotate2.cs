@@ -35,7 +35,7 @@ public class bodyrotate2 : MonoBehaviour
         //Debug.Log(Vector3.Dot(frontvector, followedvector));
         //Debug.Log(Vector3.Dot(frontvector, followedvector) / (front_dis * followed_dis));
         cross = Vector3.Cross(frontvector, followedvector);
-        if (Vector3.Dot(frontvector, followedvector)< 0f || Vector3.Dot(frontvector, followedvector) / (front_dis * followed_dis)<0.999f)
+        if (Vector3.Dot(frontvector, followedvector)< 0f || Vector3.Dot(frontvector, followedvector) / (front_dis * followed_dis)<0.99f)
         {
             if(cross .z >=0f)
             {
