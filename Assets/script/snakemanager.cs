@@ -12,7 +12,7 @@ public class snakemanager : MonoBehaviour
     private float speed;
     //获取游戏管理器
     public GM gamemanager;
-    public float lerp = 2f;
+    public float lerp = 5f;
     //当前鼠标在世界坐标中的位置
     private Vector3 currentmousepos;
     //贪吃蛇和鼠标的距离 
@@ -53,6 +53,11 @@ public class snakemanager : MonoBehaviour
     private bool Ismousemove;
     private Vector3 previousvector;
     private float previousdistance;
+    //获取蛇头的render组件
+    public SpriteRenderer headsprite;
+    //获取蛇头的sprite
+    public Sprite headpicture; 
+   
 
     private void Awake()
     {
@@ -77,6 +82,10 @@ public class snakemanager : MonoBehaviour
             Transform newbodypart = Instantiate(snakeprefab, Vector3.zero, Quaternion.identity, transform).GetComponent<Transform>();
             snakebodylist.Add(newbodypart);
             snakeheadR2d = snakehead.GetComponent<Rigidbody2D>();
+            headsprite = snakehead.GetComponent<SpriteRenderer>();
+            headsprite.sprite = headpicture;
+
+
         } else
         {
             Transform newbodypart = Instantiate(snakeprefab, snakebodylist [snakebodylist .Count -1].position +new Vector3 (0,-0.5f,0),snakebodylist [snakebodylist .Count -1].rotation , transform).GetComponent<Transform>();
@@ -115,11 +124,11 @@ public class snakemanager : MonoBehaviour
         {
             //头部移动
   
-            //deltadistance = (Vector2)previousmousepos - snakeheadR2d.position;
+            deltadistance = (Vector2)previousmousepos - snakeheadR2d.position;
 
             //transform.Translate(previousvector * Time .deltaTime/previousdistance *speed  ,Space.World);
 
-            transform.Translate(Vector2.up *Time .deltaTime , Space.World);
+            transform.Translate(deltadistance * Time .deltaTime , Space.World);
 
             /*float k = (snakehead.position.y - snakebodylist[1].position .y) / (snakehead.position.x - snakebodylist[1].position.x);
             Debug.Log("k:" + k);
