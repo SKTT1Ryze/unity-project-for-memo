@@ -31,8 +31,15 @@ public class trigger : MonoBehaviour
         }
         else if(collision .tag=="food")
         {
-            Debug.Log("heart");
+            //Debug.Log("food");
+            Destroy(collision.GetComponent<SpriteRenderer>());
+            Destroy(collision);
+            GetComponentInParent<snakemanager>().SpawnBody();
 
+        }
+        else if(collision .tag =="heart")
+        {
+            Debug.Log("heart");
         }
         else if(collision .tag=="mushroom")
         {
