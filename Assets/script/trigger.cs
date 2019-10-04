@@ -15,6 +15,10 @@ public class trigger : MonoBehaviour
     private int presentbodyamount;
     //是否有防御盾
     private bool Ishaveshelld;
+    [Header ("碰到机关掉的血")]
+    public int bloodlosefortrap = 3;
+    //是否有钥匙
+    private bool Ishavekey = false;
     private void Start()
     {
         count = 0;
@@ -108,8 +112,61 @@ public class trigger : MonoBehaviour
             Ishaveshelld = true;
             //盾牌UI显现
         }
+        else if(collision .tag=="trap")
+        {
+            //Debug.Log("trap");
+            Destroy(collision.GetComponent<SpriteRenderer>());
+            Destroy(collision);
+            if (Ishaveshelld)
+            {
+                Ishaveshelld = false;
+                //盾牌UI消失
+                return;
+            }
+            for (int i=0;i<bloodlosefortrap;i++)
+            {
+                SM.deletebody();
+            }
+        }
+        else if(collision .tag =="key")
+        {
+            Destroy(collision.GetComponent<SpriteRenderer>());
+            Destroy(collision);
+            Ishavekey = true;
+            //Debug.Log("Ishavekey:" + Ishavekey);
+        }
+        else if(collision .tag =="gate")
+        {
+            if(Ishavekey )
+            {
+                Ishavekey = false;
+                Destroy(collision.GetComponentInParent<BoxCollider2D>());
+                Destroy(collision.GetComponent<SpriteRenderer>());
+                Destroy(collision);
+                Debug.Log("通过门禁");
+            }
+            //Debug.Log("碰撞但没有钥匙");
+        }
+        else if(collision .tag =="exit")
+        {
+            Debug.Log("通过本关");
+            //跳出UI界面
+
+        }
+        else if(collision .tag =="monster")
+        {
+            if (Ishaveshelld)
+            {
+                Ishaveshelld = false;
+                //盾牌UI消失
+                return;
+            }
+            //通关失败
+            Debug.Log("通关失败");
+        }
 
     }
+    
     void speeddown()
     {
         SM.speedchange(-deltaspeed,-deltalerp );
