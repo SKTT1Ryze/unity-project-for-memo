@@ -13,6 +13,7 @@ public class BlockSpawner_3 : MonoBehaviour
     float randomTime_3;
     float tick_3;
     float snakePreviousPos;
+    public List<Sprite > BlockSpriteList_mode3 = new List<Sprite >();
 
     void Start()
     {
@@ -50,11 +51,10 @@ public class BlockSpawner_3 : MonoBehaviour
             if(snakemanager_mode3 .instance .snakeHead_3 )
             {
                 dx = snakemanager_mode3.instance.snakeHeadPosX + disBetweenBlock_3 * GM_mode3.instance.disBetweenBlock*2;
-
             }
             Vector3 newPos = new Vector3(dx, dy, 0);
             GameObject g = Instantiate(blockPrefab_3, newPos, Quaternion.identity);
-            
+            g.GetComponentInChildren <SpriteRenderer >().sprite  =BlockSpriteList_mode3[Random.Range(0, BlockSpriteList_mode3.Count-1)];
         }
     }
 
