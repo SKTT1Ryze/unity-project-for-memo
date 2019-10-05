@@ -7,6 +7,7 @@ public class foodDestroy : MonoBehaviour
     [Header("食物提供的能量")]
     public int energy;
     SpriteRenderer sr;
+    
     private void Awake()
     {
         energy = Random.Range(1, 10);
@@ -33,7 +34,7 @@ public class foodDestroy : MonoBehaviour
         }
         if(col .tag=="block")
         {
-            Destroy(gameObject);
+            Destroy(gameObject); 
         }
     }
 }

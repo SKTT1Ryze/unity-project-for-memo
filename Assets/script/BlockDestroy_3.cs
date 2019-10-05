@@ -7,6 +7,9 @@ public class BlockDestroy_3 : MonoBehaviour
     [Header("Block生命值")]
     public int life_3;
     TextMesh textMesh;
+    [Header("分数管理器")]
+    public GameObject scoreManager2_3;
+    
     void Start()
     {
         life_3 = Random.Range(1, snakemanager_mode3.instance.bodyAmount_3 / 2 + 10);
@@ -16,6 +19,7 @@ public class BlockDestroy_3 : MonoBehaviour
     public void SetBlockColorAndText(int amount)
     {
         life_3 += amount;
+        
         if (life_3 < 0)
             return;
         //颜色变化

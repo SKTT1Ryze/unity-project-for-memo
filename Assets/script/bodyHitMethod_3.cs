@@ -21,7 +21,11 @@ public class bodyHitMethod_3 : MonoBehaviour
         {
             int food = col.GetComponent<foodDestroy>().energy;
             for (int i = 0; i < food; i++)
+            {
                 GetComponentInParent<snakemanager_mode3>().SpawnBody_3();
+                
+            }
+                
         }
     }
 
@@ -34,12 +38,13 @@ public class bodyHitMethod_3 : MonoBehaviour
             {
                 snakemanager_mode3.instance.UpdateText(-1);
                 col.transform.GetComponent<BlockDestroy_3>().SetBlockColorAndText(-1);
-                
-                    snakemanager_mode3.instance.textMesh.transform.parent = null;
-                    Destroy(snakemanager_mode3.instance.snakeBodyList_mode3[0].gameObject);
-                    snakemanager_mode3.instance.snakeBodyList_mode3.Remove(snakemanager_mode3.instance.snakeBodyList_mode3[0]);
-                    GM_mode3.instance.UpdateScore(1);
-                    GM_mode3.instance.GameOver();
+                snakemanager_mode3.instance.textMesh.transform.parent = null;
+                Destroy(snakemanager_mode3.instance.snakeBodyList_mode3[0].gameObject);
+                snakemanager_mode3.instance.snakeBodyList_mode3.Remove(snakemanager_mode3.instance.snakeBodyList_mode3[0]);
+                GM_mode3.instance.UpdateScore(1);
+                GM_mode3.instance.GameOver();
+                //更新分数
+                ScoreManager_3.instance.UpdateScore(5);
                 
             }
             else
@@ -47,18 +52,17 @@ public class bodyHitMethod_3 : MonoBehaviour
                 if(transform ==snakemanager_mode3 .instance .snakeHead_3 )
                 {
                     snakemanager_mode3.instance.UpdateText(-1);
-                    col.transform.GetComponent<BlockDestroy_3>().SetBlockColorAndText(-1);
-                    
-                        snakemanager_mode3.instance.textMesh.transform.position = snakemanager_mode3.instance.snakeBodyList_mode3[1].position + new Vector3(0.5f, 0, 0);
-                        snakemanager_mode3.instance.textMesh.transform.parent = snakemanager_mode3.instance.snakeBodyList_mode3[1];
-                        snakemanager_mode3.instance.snakeHeadR2D_3 = snakemanager_mode3.instance.snakeBodyList_mode3[1].GetComponent<Rigidbody2D>();
-                        snakemanager_mode3.instance.snakeBodyList_mode3[1].GetComponent<SpriteRenderer>().sprite = snakemanager_mode3.instance.headSprite;
-                        //删除蛇头
-                        Destroy(snakemanager_mode3.instance.snakeBodyList_mode3[0].gameObject);
-                        snakemanager_mode3.instance.snakeBodyList_mode3.Remove(snakemanager_mode3.instance.snakeBodyList_mode3[0]);
-                        GM_mode3.instance.UpdateScore(1);
-                    
-                    
+                    col.transform.GetComponent<BlockDestroy_3>().SetBlockColorAndText(-1);                    
+                    snakemanager_mode3.instance.textMesh.transform.position = snakemanager_mode3.instance.snakeBodyList_mode3[1].position + new Vector3(0.5f, 0, 0);
+                    snakemanager_mode3.instance.textMesh.transform.parent = snakemanager_mode3.instance.snakeBodyList_mode3[1];
+                    snakemanager_mode3.instance.snakeHeadR2D_3 = snakemanager_mode3.instance.snakeBodyList_mode3[1].GetComponent<Rigidbody2D>();
+                    snakemanager_mode3.instance.snakeBodyList_mode3[1].GetComponent<SpriteRenderer>().sprite = snakemanager_mode3.instance.headSprite;
+                    //删除蛇头
+                    Destroy(snakemanager_mode3.instance.snakeBodyList_mode3[0].gameObject);
+                    snakemanager_mode3.instance.snakeBodyList_mode3.Remove(snakemanager_mode3.instance.snakeBodyList_mode3[0]);
+                    GM_mode3.instance.UpdateScore(1);
+                    //更新分数
+                    ScoreManager_3.instance.UpdateScore(5);
                 }
                 else
                 {

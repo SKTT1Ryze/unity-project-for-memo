@@ -78,7 +78,11 @@ public class snakemanager_mode3 : MonoBehaviour
         for (int i=0;i<bodyAmount_3;i++)
         {
             Invoke("SpawnBody_3", 0.1f);
+            //分数初始化
+            Invoke("ScoreInitialize", 0.1f);
         }
+        
+
     }
     public void SpawnBody_3()
     {
@@ -97,7 +101,14 @@ public class snakemanager_mode3 : MonoBehaviour
             Transform newBodyPart = Instantiate(snakeprefab_mode3, snakeBodyList_mode3[snakeBodyList_mode3 .Count -1].position +new Vector3 (-0.25f,0,0), snakeBodyList_mode3 [snakeBodyList_mode3 .Count -1].rotation , transform).GetComponent<Transform>();
             snakeBodyList_mode3.Add(newBodyPart);
         }
+        //更新分数
+        ScoreManager_3.instance.UpdateScore(10);
         UpdateText(1);
+    }
+    void ScoreInitialize()
+    {
+        //更新分数
+        ScoreManager_3.instance.UpdateScore(-10);
     }
     //更新蛇数量UI
     public void UpdateText(int amount)
