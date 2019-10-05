@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: -1412915192453408503}
   m_Layer: 0
   m_Name: redGate
-  m_TagString: gate_4
+  m_TagString: redgate_4
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -70,7 +70,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_Sprite: {fileID: 21300000, guid: 9696ca50aaf187f45846587bbe042158, type: 3}
   m_Color: {r: 0.9716981, g: 0.7748246, b: 0.7104397, a: 1}
   m_FlipX: 0

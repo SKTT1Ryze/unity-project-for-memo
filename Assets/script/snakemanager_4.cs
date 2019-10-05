@@ -47,6 +47,16 @@ public class snakemanager_4 : MonoBehaviour
                 return 0 ;
         }
     }
+    
+     public enum snakeColor
+    {
+        blue,
+        green,
+        yellow,
+        red
+    }
+    public snakeColor snakeColor_4;
+
     private void Awake()
     {
         instance = this;
@@ -54,6 +64,7 @@ public class snakemanager_4 : MonoBehaviour
     }
     void Start()
     {
+        snakeColor_4 = snakeColor.blue;
         IsHaveHead_4 = false;
         gamemanager_4 = GM_4.instance;
         xspeed_4 = gamemanager_4.xspeed;

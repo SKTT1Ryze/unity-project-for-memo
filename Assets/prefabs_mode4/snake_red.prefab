@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 2717584335491769243}
   - component: {fileID: 3199466476817589969}
   - component: {fileID: -7472425354498586625}
+  - component: {fileID: -2974728207572105369}
   m_Layer: 0
   m_Name: snake_red
   m_TagString: Untagged
@@ -71,7 +72,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_Sprite: {fileID: 21300000, guid: 704da0db6e045ea4a837bf5a6f7c8637, type: 3}
   m_Color: {r: 0, g: 0.124260426, b: 1, a: 1}
   m_FlipX: 0
@@ -130,5 +131,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d7cdf7ec905372947adabd5908299ba6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &-2974728207572105369
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2246614076729935201}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cf40fb0a35728da4090839bfc8ae9dd4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 

@@ -7,10 +7,10 @@ public class gateSpawner_4 : MonoBehaviour
     [Header("颜色门预制件List")]
     public List<GameObject> gatePrefabsList_4;
     
-    //蛇头与颜色门之间的距离
-    private float disBetweenGateAndHead = 20f;
-    //两个颜色门之间的距离
-    private float disBetweenGates=20f;
+    [Header ("蛇头与颜色门之间的距离")]
+    public  float disBetweenGateAndHead = 50f;
+    [Header ("两个颜色门之间的距离")]
+    public  float disBetweenGates=50f;
     private float snakePreviousPos_4;
     void Start()
     {
