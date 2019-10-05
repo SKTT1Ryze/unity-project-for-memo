@@ -10,7 +10,7 @@ public class enemymove : MonoBehaviour
     public float moverange;
     void Start()
     {
-        moverange = 5f;
+        
     }
 
    
