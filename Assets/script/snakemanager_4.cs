@@ -12,7 +12,8 @@ public class snakemanager_4 : MonoBehaviour
     float xspeed_4, yspeed_4;
     //获取游戏管理器
     GM_4 gamemanager_4;
-    float lerp_4=5f;
+    [Header ("蛇身体部位跟随速度")]
+    public float  lerp_4=10f;
     //当前鼠标在世界坐标中的位置
     Vector3 currentMousePos_4;
     float upLimit_4, downLimit_4;
