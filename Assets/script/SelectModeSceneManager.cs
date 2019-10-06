@@ -32,4 +32,20 @@ public class SelectModeSceneManager : MonoBehaviour
     {
         Debug.Log("模式四");
     }
+    public void SelectLevelOne()
+    {
+        Debug.Log("关卡一");
+    }
+    public void SelectLevelTwo()
+    {
+        Debug.Log("关卡二");
+    }
+    public void SelectLevelThree()
+    {
+        Debug.Log("关卡三");
+    }
+    public void SelectLevelFour()
+    {
+        Debug.Log("关卡四");
+    }
 }
